@@ -12,5 +12,10 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
+    $router->resource('users', UserController::class);
+    $router->resource('notes', NoteController::class);
+    $router->resource('attributes', AttributeController::class);
+    $router->resource('notes_attribute', NoteAttributeController::class);
+
 
 });
