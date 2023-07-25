@@ -15,7 +15,7 @@ class AttributeController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Attribute';
+    protected $title = '屬性';
 
     /**
      * Make a grid builder.
@@ -25,8 +25,13 @@ class AttributeController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Attribute());
-
-
+        
+        $grid->column('id', __('ID'));
+        $grid->column('name', __('屬性名'));
+        $grid->column('is_default', __('預設'))->bool(['1' => true, '0' => false]);
+        $grid->column('is_rating', __('評分項'))->bool(['1' => true, '0' => false]);
+        $grid->column('created_at', __('創建'));
+        $grid->column('updated_at', __('更新'));
 
         return $grid;
     }
@@ -40,6 +45,13 @@ class AttributeController extends AdminController
     protected function detail($id)
     {
         $show = new Show(Attribute::findOrFail($id));
+
+        $show->column('id', __('ID'));
+        $show->column('name', __('屬性名'));
+        $show->column('is_default', __('預設'));
+        $show->column('is_rating', __('評分項'));
+        $show->column('created_at', __('創建'));
+        $show->column('updated_at', __('更新'));
 
 
 
@@ -55,7 +67,9 @@ class AttributeController extends AdminController
     {
         $form = new Form(new Attribute());
 
-
+        $form->text('name', __('屬性名'));
+        $form->RadioButton('is_default', __('預設'));
+        $form->RadioButton('is_rating', __('評分項'));
 
         return $form;
     }

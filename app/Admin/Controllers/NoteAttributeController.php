@@ -15,7 +15,7 @@ class NoteAttributeController extends AdminController
      *
      * @var string
      */
-    protected $title = 'NoteAttribute';
+    protected $title = '筆記屬性';
 
     /**
      * Make a grid builder.
@@ -26,7 +26,9 @@ class NoteAttributeController extends AdminController
     {
         $grid = new Grid(new NoteAttribute());
 
-
+        $grid->column('value', __('value'));
+        $grid->column('note_id', __('note_id'));
+        $grid->column('attribute_id', __('attribute_id'));
 
         return $grid;
     }
@@ -42,6 +44,9 @@ class NoteAttributeController extends AdminController
         $show = new Show(NoteAttribute::findOrFail($id));
 
 
+        $show->column('value', __('value'));
+        $show->column('note_id', __('note_id'));
+        $show->column('attribute_id', __('attribute_id'));
 
         return $show;
     }
@@ -55,7 +60,9 @@ class NoteAttributeController extends AdminController
     {
         $form = new Form(new NoteAttribute());
 
-
+        $form->number('value', __('value'));
+        $form->number('note_id', __('note_id'));
+        $form->number('attribute_id', __('attribute_id'));
 
         return $form;
     }

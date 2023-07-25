@@ -15,7 +15,7 @@ class NoteController extends AdminController
      *
      * @var string
      */
-    protected $title = 'Note';
+    protected $title = '筆記';
 
     /**
      * Make a grid builder.
@@ -26,12 +26,12 @@ class NoteController extends AdminController
     {
         $grid = new Grid(new Note());
 
-        $grid->column('id', __('Id'));
-        $grid->column('user_id', __('User id'));
-        $grid->column('title', __('Title'));
-        $grid->column('content', __('Content'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('id', __('ID'));
+        $grid->column('user_id', __('用戶ID'));
+        $grid->column('title', __('標題'));
+        $grid->column('content', __('內文'));
+        $grid->column('created_at', __('創建'));
+        $grid->column('updated_at', __('更新'));
 
         return $grid;
     }
@@ -46,12 +46,12 @@ class NoteController extends AdminController
     {
         $show = new Show(Note::findOrFail($id));
 
-        $show->field('id', __('Id'));
-        $show->field('user_id', __('User id'));
-        $show->field('title', __('Title'));
-        $show->field('content', __('Content'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+        $show->field('id', __('ID'));
+        $show->field('user_id', __('用戶ID'));
+        $show->field('title', __('標題'));
+        $show->field('content', __('內文'));
+        $show->field('created_at', __('創建'));
+        $show->field('updated_at', __('更新'));
 
         return $show;
     }
@@ -65,9 +65,9 @@ class NoteController extends AdminController
     {
         $form = new Form(new Note());
 
-        $form->number('user_id', __('User id'));
-        $form->text('title', __('Title'));
-        $form->textarea('content', __('Content'));
+        $form->number('user_id', __('用戶ID'));
+        $form->text('title', __('標題'));
+        $form->textarea('content', __('內文'));
 
         return $form;
     }

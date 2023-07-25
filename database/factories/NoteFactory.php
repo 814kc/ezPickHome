@@ -28,8 +28,8 @@ class NoteFactory extends Factory
      {
          return [
             'user_id' => \App\Models\User::inRandomOrder()->value('id'),
-            'title' => fake()->sentence(5, false),
-            'content' => fake()->randomHtml()
+            'title' => fake()->realText(30),
+            'content' => fake()->realText()
          ];
      }
 }
